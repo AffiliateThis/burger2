@@ -5,11 +5,11 @@ $(function() {
     var newDevoured = $(this).data("newDevoured");
 
     var newDevouredState = {
-      sleepy: newDevoured
+      devoured: newDevoured
     };
 
     // Send the PUT request.
-    $.ajax("/api/burgers/" + id, {
+    $.ajax("/api/burger/" + id, {
       type: "PUT",
       data: newDevouredState
     }).then(function() {
@@ -24,10 +24,12 @@ $(function() {
     event.preventDefault();
 
     var newBurger = {
-      name: $("#ca").val(),
-      // .trim(),
-      Devoured: $("[name=Devoured]:checked").val()
-      // .trim()
+      burger_name: $("#burg")
+        .val()
+        .trim(),
+      devoured: $("input[name='devoured']:checked")
+        .val()
+        .trim()
     };
 
     // Send the POST request.
